@@ -10,7 +10,6 @@ user_agent = "Ring-Ingest-Service"
 cache_file = Path(f"./data/{user_agent}.token.cache")
 
 def get_creds():
-    print("Pswd: " + os.getenv("RING_PASSWORD"))
     username = os.getenv("RING_USERNAME")
     password = os.getenv("RING_PASSWORD")
 
@@ -70,14 +69,20 @@ async def main():
     assert event_listener.subscribed is True # necessary to function
     assert event_listener.started is True # also necessary to function lol
 
+    print("Event listener registered!")
+
     devices = ring.devices()
     pprint(devices)
+
+    print("Listening for events")
 
     try:
         while True:
             await asyncio.sleep(60)
     except asyncio.CancelledError:
         pass
+
+    print("Shutting down!")
 
     await event_listener.stop()
     await auth.async_close()
