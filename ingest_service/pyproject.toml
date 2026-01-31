@@ -1,0 +1,16 @@
+[project]
+name = "ingest-service"
+version = "0.1.0"
+description = "service that interacts with Ring API and pushes events to Kafka"
+authors = [
+    {name = "Davian Albarran",email = "dalbarran.dev@gmail.com"}
+]
+requires-python = ">=3.14"
+dependencies = [
+    "ring-doorbell (>=0.9.13,<0.10.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
