@@ -52,10 +52,16 @@ services:
       - ./ingest_service/data:/app/data
     ports:
       - "8080:8080"
+    depends_on:
+      - kafka
   consumer:
     build: ./consumer_service/.
     ports:
       - "8081:8081"
+    depends_on:
+      - kafka
+      - redis
+      - db
 
 volumes:
   postgres_data:
