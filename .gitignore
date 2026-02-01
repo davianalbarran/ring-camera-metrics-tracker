@@ -3,5 +3,6 @@
 backup
 
 ingest_service/data
+__pycache__
 
 consumer_service/build

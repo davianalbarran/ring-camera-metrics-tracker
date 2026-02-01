@@ -26,7 +26,7 @@ COPY pyproject.toml poetry.lock ./
 RUN poetry install --no-root
 
 # Copy the rest of the application
-COPY main.py ./
+COPY *.py ./
 
 # Run via poetry (or python directly — both work)
 CMD ["poetry", "run", "python", "main.py"]
